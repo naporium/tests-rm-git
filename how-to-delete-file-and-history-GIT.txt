@@ -1,5 +1,5 @@
 description: remove a file permanently from git and change all the history as well
-NOTE: this will change all the commits hashes where the file was assosiated!
+NOTE: this will change all the commits hashes where the file was associated!
 SOURCE: https://stackoverflow.com/questions/35115585/remove-files-completely-from-git-repository-along-with-its-history
 
 the old command to do the task, but not recomended by git is:
