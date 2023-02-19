@@ -1,0 +1,25 @@
+description: remove a file permanently from git and change all the history as well
+NOTE: this will change all the commits hashes where the file was assosiated!
+SOURCE: https://stackoverflow.com/questions/35115585/remove-files-completely-from-git-repository-along-with-its-history
+
+the old command to do the task, but not recomended by git is:
+user@fy ~/tmp1/tests-rm-git (main)$ git filter-branch --index-filter "rm file2"
+WARNING: git-filter-branch has a glut of gotchas generating mangled history
+	 rewrites.  Hit Ctrl-C before proceeding to abort, then use an
+	 alternative filtering tool such as 'git filter-repo'
+	 (https://github.com/newren/git-filter-repo/) instead.  See the
+	 filter-branch manual page for more details; to squelch this warning,
+	 set FILTER_BRANCH_SQUELCH_WARNING=1.
+Proceeding with filter-branch...
+
+===========================================
+
+
+NEW APPROUCH recommend by git:
+# 1.install the tool
+ $ sudo dnf install git-filter-repo
+# https://github.com/newren/git-filter-repo/blob/main/INSTALL.md
+
+# 2. make a fresh clone from the repo
+# 3. Delete the file or files(for more options check tool documentation)
+git filter-repo --invert-paths --path  file2
